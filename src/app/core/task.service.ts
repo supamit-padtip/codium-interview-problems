@@ -19,19 +19,19 @@ export class TaskService {
     return oddNumbers;
   }
 
-  private primeNumbers(range: number) {
-    var n = 2;
+  private primeNumbers(n: number) {
+    var x = 2;
     var primeNumbers = [];
-    while (primeNumbers.length < range) {
+    while (x < n) {
       var primeNumber = true;
-      for (var i = 2; i < n; i++) {
-        if (n % i == 0) {
+      for (var i = 2; i < x; i++) {
+        if (x % i == 0) {
           primeNumber = false;
           break;
         }
       }
-      primeNumber && primeNumbers.push(n);
-      n++;
+      primeNumber && primeNumbers.push(x);
+      x++;
     }
     return primeNumbers;
   }
@@ -68,7 +68,7 @@ export class TaskService {
   public easyTask3Dot1(n: number) {
     var str = "";
     for (var i = 0; i < n; i++) {
-      str += `${'*'.repeat(i)}\n`;
+      str += `${'*'.repeat(i+1)}\n`;
     }
     return str;
   }
@@ -76,7 +76,7 @@ export class TaskService {
   public easyTask3Dot2(n: number) {
     var str = "";
     for (var i = 0; i < n; i++) {
-      str += `${' '.repeat(n - i) + '*'.repeat(i)}\n`;
+      str += `${' '.repeat(n - i+1) + '*'.repeat(i+1)}\n`;
     }
     return str;
   }
@@ -96,8 +96,8 @@ export class TaskService {
     var isEvenNumber = n % 2 == 0;
     var oddNumbers = this.oddNumbers(n / 2).reverse();
     oddNumbers.shift();
-    if(isEvenNumber){
-      oddNumbers = oddNumbers.map(x => x+=1);
+    if (isEvenNumber) {
+      oddNumbers = oddNumbers.map(x => x += 1);
     }
     for (var i = 0; i < n; i++) {
       let blankQuantity = halfN - Math.abs(halfN - i);
@@ -120,5 +120,33 @@ export class TaskService {
       str += `${' '.repeat(isEvenNumber ? blankQuantity - 1 : blankQuantity) + '*'.repeat(oddNumbers[oddIndex])}\n`;
     }
     return str;
+  }
+
+  public easyTask3Dot6(n: number) {
+    var str = "";
+    var oddNumbers = this.oddNumbers(n);
+    var line = oddNumbers[n - 1];
+    var halfLine = Math.trunc(line / 2);
+    oddNumbers.pop();
+    for (var i = 0; i < line; i++) {
+      let firstNLast = i != 0 && i != line - 1;
+      let abQuantity = n - (i + 1) >= 0 ? n - (i + 1) : 0;
+      let cdQuantity = (i + 1) - n >= 0 ? (i + 1) - n : 0;
+      let eIndex = halfLine - Math.abs(halfLine - i) - 1;
+      str += `${'A'.repeat(abQuantity)}`;
+      str += `${'C'.repeat(cdQuantity)}`;
+      str += `+`;
+      str += `${'E'.repeat(oddNumbers[eIndex])}`;
+      if (firstNLast) {
+        str += `+`;
+      }
+      str += `${'B'.repeat(abQuantity)}`;
+      str += `${'C'.repeat(cdQuantity)}\n`;
+    }
+    return str;
+  }
+
+  public mediumTask1(n: number){
+    return this.primeNumbers(n).join(' ');
   }
 }
