@@ -1,1 +1,28 @@
-<p>home works!</p>
+<mat-drawer-container autosize class="max-content mx-auto col-10 border rounded">
+    <mat-drawer mode="side" opened>
+        <main style="overflow: auto;">
+            <div *ngFor="let item of listMenu" class="mb-3">
+                <p class="p-3" style="font-size: large;">
+                    {{item.categoryName}}
+                </p>
+                <ul class="nav flex-column mb-auto">
+                    <li class="mb-1" *ngFor="let itemCategory of item.menu">
+                        <a href="{{itemCategory.path}}" class="nav-link link-dark d-flex menu-button">
+                            <svg class="me-2" width="16" height="16">
+                                <use xlink:href="#speedometer2" />
+                            </svg>
+                            {{itemCategory.name}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="example-sidenav-content">
+            <button type="button" mat-button>
+                Toggle sidenav
+            </button>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
