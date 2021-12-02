@@ -36,11 +36,20 @@ $codium-interview-problems-theme: mat.define-light-theme((
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 
+:root{
+  --primary-color-bg: #8BC6EC;
+  --primary-color: cadetblue;
+}
+
 html, body { height: 100% !important;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .max-content {
   height: 100%;
+}
+
+.bgc{
+  background-color: var(--primary-color-bg);
 }
 
 .menu-button {
@@ -52,6 +61,23 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: gainsboro;
 }
 
-div{
-  height: 100%;
+.mat-raised-button.mat-primary,
+.mat-flat-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
+  width: min-content;
+  color: #f0fff3;
+  background-color: var(--primary-color);
+}
+
+.mat-form-field.mat-focused {
+  .mat-form-field-label {
+    color: var(--primary-color);
+  }
+  .mat-form-field-ripple {
+    background-color: var(--primary-color);
+  }
+  .mat-form-field-required-marker {
+    color: var(--primary-color);
+  }
 }

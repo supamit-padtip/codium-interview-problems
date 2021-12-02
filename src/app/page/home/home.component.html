@@ -1,4 +1,4 @@
-<mat-drawer-container autosize class="max-content mx-auto col-10 border rounded">
+<mat-drawer-container autosize class="max-content mx-auto col-lg-10 col-12 border shadow-lg rounded">
     <mat-drawer mode="side" opened>
         <main style="overflow: auto;">
             <div *ngFor="let item of listMenu" class="mb-3">
@@ -19,10 +19,8 @@
         </main>
     </mat-drawer>
     <mat-drawer-content>
-        <div class="example-sidenav-content">
-            <button type="button" mat-button>
-                Toggle sidenav
-            </button>
+        <div class="p-3 mx-auto">
+            <router-outlet></router-outlet>
         </div>
     </mat-drawer-content>
 </mat-drawer-container>
