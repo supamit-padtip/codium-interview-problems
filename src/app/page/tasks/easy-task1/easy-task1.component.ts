@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { TaskService } from 'src/app/core/task.service';
 
 @Component({
-  selector: 'app-task1',
-  templateUrl: './task1.component.html',
-  styleUrls: ['./task1.component.scss']
+  selector: 'app-easy-task1',
+  templateUrl: './easy-task1.component.html',
+  styleUrls: ['./easy-task1.component.scss']
 })
-export class Task1Component implements OnInit {
+export class EasyTask1Component implements OnInit {
   answer: string = "";
 
   constructor(
@@ -15,8 +15,5 @@ export class Task1Component implements OnInit {
 
   ngOnInit(): void {
     this.answer = this.taskService.easyTask1();
-    // this.answer = this.taskService.easyTask3Dot1(5);
-    console.log(this.answer)
   }
-
 }

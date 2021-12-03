@@ -1,0 +1,5 @@
+<form (ngSubmit)="submit()" [formGroup]="formGroup">
+    <app-text-input ngDefaultControl label="Quantity" type="number" placeholder="Ex. 2000, 2010" formControlName="n"></app-text-input>
+    <app-button label="Submit" type="submit"></app-button>
+    <app-display [value]="answer"></app-display>
+</form>

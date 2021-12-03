@@ -1,4 +1,11 @@
 <mat-form-field class="mx-2" appearance="fill">
     <mat-label>{{label}}</mat-label>
-    <input matInput [placeholder]="placeholder" [value]="value" [disabled]="disabled">
+    <div [ngSwitch]="type">
+        <div *ngSwitchCase="'number'">
+            <input matInput type="number" [placeholder]="placeholder" [(ngModel)]="value" [disabled]="disabled">
+        </div>
+        <div *ngSwitchDefault>
+            <input matInput [type]="type" [placeholder]="placeholder" [(ngModel)]="value" [disabled]="disabled">
+        </div>
+    </div>
 </mat-form-field>

@@ -62,7 +62,7 @@ export class TaskService {
     var year2Digitnumber = + year2Digit.join("");
     var divisibleBy400 = year % 400 === 0;
     var divisibleBy4 = year2Digitnumber % 4 === 0;
-    return divisibleBy400 || (year2Digitnumber > 0 && divisibleBy4);
+    return String(divisibleBy400 || (year2Digitnumber > 0 && divisibleBy4));
   }
 
   public easyTask3Dot1(n: number) {
@@ -141,7 +141,7 @@ export class TaskService {
         str += `+`;
       }
       str += `${'B'.repeat(abQuantity)}`;
-      str += `${'C'.repeat(cdQuantity)}\n`;
+      str += `${'D'.repeat(cdQuantity)}\n`;
     }
     return str;
   }
